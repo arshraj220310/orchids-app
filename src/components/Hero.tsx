@@ -526,5 +526,6 @@ export default function Hero() {
         </div>
       </ContainerScroll>
     </section>
+    </>
   );
 }
