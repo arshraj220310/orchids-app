@@ -275,8 +275,52 @@ export default function Services() {
           </motion.p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Display Cards — animated dental highlights */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="mb-20 flex justify-center"
+          >
+            <DisplayCards
+              cards={[
+                {
+                  icon: <Star className="size-4 text-yellow-300" />,
+                  title: "5-Star Rated",
+                  description: "Over 2,400 happy patients & counting",
+                  date: "Google · Yelp · Healthgrades",
+                  iconClassName: "text-yellow-500",
+                  titleClassName: "text-yellow-400",
+                  className:
+                    "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+                },
+                {
+                  icon: <ShieldCheck className="size-4 text-teal-300" />,
+                  title: "Painless Care",
+                  description: "Gentle techniques, zero anxiety visits",
+                  date: "Sedation options available",
+                  iconClassName: "text-teal-500",
+                  titleClassName: "text-teal-400",
+                  className:
+                    "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+                },
+                {
+                  icon: <CalendarCheck className="size-4 text-emerald-300" />,
+                  title: "Same-Day Bookings",
+                  description: "Emergency & routine slots open daily",
+                  date: "Mon – Sat · 8am – 7pm",
+                  iconClassName: "text-emerald-500",
+                  titleClassName: "text-emerald-400",
+                  className:
+                    "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10",
+                },
+              ]}
+            />
+          </motion.div>
+
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}
