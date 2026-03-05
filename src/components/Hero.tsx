@@ -200,7 +200,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 py-32 lg:py-0 grid lg:grid-cols-2 gap-16 items-center min-h-screen">
+        <div className="relative max-w-7xl mx-auto px-6 py-32 lg:py-24 grid lg:grid-cols-2 gap-16 items-center min-h-screen">
         {/* Left Content */}
         <motion.div style={{ opacity }} className="relative z-10 pt-20 lg:pt-0">
           {/* Award badge */}
