@@ -134,6 +134,7 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
+    <>
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 gradient-bg noise" />
