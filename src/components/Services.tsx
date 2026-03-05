@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck, CalendarCheck } from "lucide-react";
+import DisplayCards from "@/components/ui/display-cards";
 
 const services = [
   {
