@@ -181,7 +181,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/35 text-xs">
-          <p>© 2024 LuminaDent. All rights reserved.</p>
+          <p>© 2026 Made by Arsh Raj. All rights reserved.(just for demo)</p>
           <div className="flex gap-5">
             {["Privacy Policy", "Terms of Service", "HIPAA Notice", "Accessibility"].map((l) => (
               <a key={l} href="#" className="hover:text-white/70 transition-colors">
@@ -189,7 +189,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p>Made with ♥ in New York City</p>
+          <p>Made with ♥ in India</p>
         </div>
       </div>
     </footer>
