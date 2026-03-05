@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Star, Shield, Award, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Star, Shield, Award, Sparkles, CheckCircle2, CalendarDays, Users, TrendingUp } from "lucide-react";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Image from "next/image";
 
 const floatingBadges = [
   { icon: "⭐", text: "4.9/5 Rating", sub: "2,400+ reviews", delay: 0, x: "left-[5%]", y: "top-[30%]" },
