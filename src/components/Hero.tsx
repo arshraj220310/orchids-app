@@ -383,20 +383,147 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="w-full h-16 lg:h-20"
-        >
-          <path
-            d="M0,60 C240,20 480,80 720,50 C960,20 1200,70 1440,40 L1440,80 L0,80 Z"
-            fill="rgb(240, 250, 250)"
-          />
-        </svg>
-      </div>
+    </section>
+
+    {/* Container Scroll 3D Preview Section */}
+    <section className="bg-[#f0fafa] overflow-hidden">
+      <ContainerScroll
+        titleComponent={
+          <div className="mb-6">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-block text-sm font-semibold uppercase tracking-widest text-teal-600 mb-4 bg-teal-50 border border-teal-200 px-4 py-1.5 rounded-full"
+            >
+              Our Digital Practice
+            </motion.span>
+            <h2
+              className="text-4xl md:text-6xl font-bold text-[#0a2e2e] leading-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              World-Class Care,
+              <br />
+              <span className="text-teal-600">Beautifully Delivered</span>
+            </h2>
+            <p className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
+              Our state-of-the-art facility and patient portal give you complete control of your dental journey.
+            </p>
+          </div>
+        }
+      >
+        {/* Clinic Dashboard Mock-up inside the 3D card */}
+        <div className="w-full h-full rounded-xl overflow-hidden relative bg-[#0d1b2a]">
+          {/* Header bar */}
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#0a1520] border-b border-white/10">
+            <div className="flex gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-red-500/70" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+              <div className="w-3 h-3 rounded-full bg-green-500/70" />
+            </div>
+            <div className="flex-1 mx-4">
+              <div className="bg-white/10 rounded-md px-3 py-1 text-[11px] text-white/50 max-w-sm mx-auto text-center">
+                app.luminadent.com/dashboard
+              </div>
+            </div>
+          </div>
+
+          {/* Dashboard body */}
+          <div className="flex h-[calc(100%-40px)]">
+            {/* Sidebar */}
+            <div className="w-14 md:w-52 bg-[#081018] border-r border-white/5 flex flex-col py-4 gap-1 px-2">
+              <div className="flex items-center gap-3 px-2 py-2 mb-4">
+                <div className="w-7 h-7 rounded-lg bg-teal-500 flex items-center justify-center shrink-0">
+                  <span className="text-white text-xs font-bold">L</span>
+                </div>
+                <span className="text-white font-semibold text-sm hidden md:block">LuminaDent</span>
+              </div>
+              {[
+                { icon: <CalendarDays className="w-4 h-4" />, label: "Appointments", active: true },
+                { icon: <Users className="w-4 h-4" />, label: "Patients", active: false },
+                { icon: <TrendingUp className="w-4 h-4" />, label: "Analytics", active: false },
+                { icon: <CheckCircle2 className="w-4 h-4" />, label: "Treatments", active: false },
+              ].map(({ icon, label, active }) => (
+                <div
+                  key={label}
+                  className={`flex items-center gap-3 px-2 py-2 rounded-lg cursor-pointer transition-all ${
+                    active ? "bg-teal-500/20 text-teal-400" : "text-white/40 hover:text-white/70 hover:bg-white/5"
+                  }`}
+                >
+                  {icon}
+                  <span className="text-sm hidden md:block">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Main content */}
+            <div className="flex-1 p-3 md:p-5 overflow-hidden">
+              {/* Stats row */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                {[
+                  { label: "Today's Appts", value: "12", color: "text-teal-400", bg: "bg-teal-500/10" },
+                  { label: "New Patients", value: "3", color: "text-green-400", bg: "bg-green-500/10" },
+                  { label: "Satisfaction", value: "99%", color: "text-yellow-400", bg: "bg-yellow-500/10" },
+                  { label: "Treatments Done", value: "47", color: "text-purple-400", bg: "bg-purple-500/10" },
+                ].map(({ label, value, color, bg }) => (
+                  <div key={label} className={`${bg} rounded-xl p-3 border border-white/5`}>
+                    <div className={`text-xl md:text-2xl font-bold ${color}`}>{value}</div>
+                    <div className="text-white/40 text-[10px] md:text-xs mt-0.5">{label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Appointment list + smile photo */}
+              <div className="grid md:grid-cols-5 gap-3 h-[calc(100%-80px)]">
+                {/* Appointments */}
+                <div className="md:col-span-3 bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+                  <div className="px-3 py-2 border-b border-white/5 text-white/70 text-xs font-semibold uppercase tracking-widest">
+                    Upcoming Appointments
+                  </div>
+                  <div className="divide-y divide-white/5">
+                    {[
+                      { name: "Sarah Johnson", time: "9:00 AM", type: "Teeth Whitening", avatar: "SJ" },
+                      { name: "Marcus Lee", time: "10:30 AM", type: "Invisalign Check", avatar: "ML" },
+                      { name: "Emily Davis", time: "12:00 PM", type: "Dental Crown", avatar: "ED" },
+                      { name: "Robert Kim", time: "2:00 PM", type: "Root Canal", avatar: "RK" },
+                    ].map(({ name, time, type, avatar }) => (
+                      <div key={name} className="flex items-center gap-3 px-3 py-2.5 hover:bg-white/5 transition-colors">
+                        <div className="w-7 h-7 rounded-full bg-teal-600 flex items-center justify-center text-[10px] text-white font-bold shrink-0">
+                          {avatar}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-white/80 text-xs font-medium truncate">{name}</div>
+                          <div className="text-white/40 text-[10px] truncate">{type}</div>
+                        </div>
+                        <div className="text-teal-400 text-[10px] font-mono shrink-0">{time}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Smile preview */}
+                <div className="md:col-span-2 rounded-xl overflow-hidden relative bg-[#0a1520] border border-white/5">
+                  <Image
+                    src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
+                    alt="Beautiful smile result"
+                    fill
+                    className="object-cover opacity-80"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2a] via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="text-white text-xs font-semibold">Latest Result</div>
+                    <div className="text-teal-400 text-[10px] flex items-center gap-1 mt-0.5">
+                      <CheckCircle2 className="w-3 h-3" /> Smile Transformation Complete
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ContainerScroll>
     </section>
   );
 }
